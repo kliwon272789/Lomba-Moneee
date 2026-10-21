@@ -1,0 +1,1261 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ekstrakurikuler | SMPIT Al Huda Wonogiri</title>
+
+    <style>
+        /* =====================================
+           1. PENGATURAN DASAR WEBSITE
+        ===================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FAF9F4;
+            color: #343B36;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: 0 auto;
+        }
+
+        /* =====================================
+           2. HEADER WEBSITE
+        ===================================== */
+
+        header {
+            background-color: #174D3A;
+            color: white;
+            padding: 22px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .logo-link {
+            display: inline-block;
+            max-width: 100%;
+            line-height: 0;
+        }
+
+        .logo {
+			width: 230px;
+			max-width: 100%;
+			height: auto;
+			display: block;
+
+			background-color: #FAF9F4;
+			padding: 6px 10px;
+			border-radius: 8px;
+		}
+		
+		.logo:hover {
+			width: 260px;
+			max-width: 100%;
+			height: auto;
+			display: block;
+			transition: width 0.2s ease;
+			background-color: #FAF9F4;
+			padding: 6px 10px;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+
+        nav {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+			font-weight: bold;
+        }
+
+        nav a:hover {
+			font-size: 18px;
+            color: #D6B66C;
+			font-weight: bold;
+			transition: font-size 0.2s ease;
+			cursor: pointer;
+        }
+
+        /* =====================================
+           3. JUDUL HALAMAN
+        ===================================== */
+
+        .hero {
+            text-align: center;
+            padding: 55px 0 35px;
+        }
+
+        .label {
+            display: inline-block;
+            background-color: #E7F1EA;
+            color: #174D3A;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: #174D3A;
+            font-size: clamp(28px, 4vw, 40px);
+            margin: 18px 0 12px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            color: #68736B;
+            font-size: 15px;
+        }
+
+        /* =====================================
+           4. BAGIAN KATEGORI
+        ===================================== */
+
+        .kategori {
+            padding: 20px 0 35px;
+        }
+
+        .judul-kategori {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .judul-kategori h2 {
+            color: #174D3A;
+            font-size: 23px;
+            margin: 0;
+        }
+
+        .garis-emas {
+            width: 45px;
+            height: 4px;
+            background-color: #D6B66C;
+            border-radius: 10px;
+        }
+
+        /* =====================================
+           5. INI BAGIAN TERPENTING:
+              SUSUNAN KARTU DARI KANAN KE KIRI
+        ===================================== */
+
+        .kumpulan-kartu {
+            display: grid;
+
+            /* Kolom otomatis menyesuaikan layar */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            /* Jarak horizontal dan vertikal antarkartu */
+            gap: 22px;
+
+            /* Kartu pertama dimulai dari sisi kanan */
+            direction: rtl;
+        }
+		
+        /* Tata letak khusus kategori Olahraga: empat kolom di layar lebar. */
+        .kumpulan-kartu-empat {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        /* Karate berada pada kolom paling kiri di layar lebar.
+           Karena direction: rtl, kolom ke-4 adalah kolom paling kiri. */
+        .kartu-karate {
+            grid-column: 4;
+        }
+
+        /* Tari mengambil dua kolom di sisi kiri pada susunan kanan-ke-kiri. */
+        .kumpulan-kartu-tari {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            direction: rtl;
+        }
+
+        .kartu-tari {
+            /* Pada direction: rtl, garis 3 sampai 5 menempati separuh kiri. */
+            grid-column: 3 / 5;
+        }
+
+        /* =====================================
+           6. DESAIN SETIAP KARTU
+        ===================================== */
+			.kredit-gambar {
+				margin: 0;
+				padding: 7px 12px;
+				background-color: white;
+				text-align: right;
+				font-size: 11px;
+				line-height: 1.5;
+			}
+
+			.kredit-gambar a {
+				color: #68736B;
+				text-decoration: underline;
+			}
+
+			.kredit-gambar a:hover {
+				color: #174D3A;
+			}
+		
+        .kartu {
+            background-color: white;
+            border: 1px solid #E0E6E0;
+            border-radius: 16px;
+            overflow: hidden;
+
+            /* Isi kartu tetap dibaca dari kiri ke kanan */
+            direction: ltr;
+
+            text-align: left;
+
+            box-shadow: 0 4px 14px rgba(23, 77, 58, 0.06);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .kartu:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(23, 77, 58, 0.13);
+        }
+
+        /* Tempat gambar sementara */
+
+        .gambar-kartu {
+            height: 155px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+                135deg,
+                #DDEFE3,
+                #A8D4B6
+            );
+            color: #174D3A;
+            font-size: 16px;
+            font-weight: bold;
+        }
+		
+		.gambar-kartu img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+
+        .isi-kartu {
+            padding: 19px;
+        }
+
+        .kategori-kecil {
+            display: inline-block;
+            color: #287A57;
+            background-color: #E7F1EA;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .isi-kartu h3 {
+            color: #174D3A;
+            font-size: 19px;
+            margin: 0 0 10px;
+        }
+
+        .isi-kartu p {
+            color: #68736B;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0 0 18px;
+        }
+
+        .tombol {
+            display: inline-block;
+            background-color: #287A57;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 11px 14px;
+            border-radius: 9px;
+            transition: background-color 0.2s ease;
+        }
+
+        .tombol:hover {
+            background-color: #174D3A;
+        }
+
+
+        /* =====================================
+           10. JENDELA DETAIL EKSTRAKURIKULER
+        ===================================== */
+
+        .tombol {
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .dialog-detail {
+            width: min(620px, calc(100% - 32px));
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid #E0E6E0;
+            border-radius: 18px;
+            padding: 0;
+            color: #343B36;
+            background: #FAF9F4;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .dialog-detail::backdrop {
+            background: rgba(14, 35, 26, 0.66);
+            backdrop-filter: blur(3px);
+        }
+
+        .dialog-header {
+            background: #174D3A;
+            color: white;
+            padding: 24px 26px 22px;
+            position: relative;
+        }
+
+        .dialog-label {
+            display: inline-block;
+            background: #D6B66C;
+            color: #174D3A;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .dialog-header h2 {
+            font-size: 27px;
+            margin: 0;
+            padding-right: 35px;
+        }
+
+        .dialog-body {
+            padding: 24px 26px 26px;
+        }
+
+        .dialog-body p {
+            line-height: 1.75;
+            margin: 0 0 18px;
+        }
+
+        .dialog-body h3 {
+            color: #174D3A;
+            font-size: 16px;
+            margin: 22px 0 10px;
+        }
+
+        .dialog-body ul {
+            padding-left: 21px;
+            margin: 0 0 18px;
+        }
+
+        .dialog-body li {
+            line-height: 1.65;
+            margin-bottom: 7px;
+        }
+
+        .catatan-dialog {
+            background: #E7F1EA;
+            border-left: 4px solid #D6B66C;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .dialog-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 22px;
+        }
+
+        .tombol-tutup {
+            background: #174D3A;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 11px 18px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tombol-tutup:hover {
+            background: #287A57;
+        }
+
+        /* =====================================
+           7. BAGIAN INFORMASI
+        ===================================== */
+
+        .informasi {
+            margin: 25px auto 55px;
+            padding: 28px;
+            background-color: #E7F1EA;
+            border-radius: 16px;
+            border-left: 5px solid #D6B66C;
+        }
+
+        .informasi h2 {
+            margin-top: 0;
+            color: #174D3A;
+        }
+
+        .informasi p {
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* =====================================
+           8. FOOTER
+        ===================================== */
+
+        footer {
+            background-color: #174D3A;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+        /* =====================================
+           9. TAMPILAN HP
+        ===================================== */
+
+        @media (min-width: 521px) and (max-width: 800px) {
+            .kumpulan-kartu-empat {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            /* Pada grid 2 kolom, kolom 2 adalah sisi kiri karena direction: rtl. */
+            .kartu-karate {
+                grid-column: 2;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            .hero {
+                padding-top: 38px;
+            }
+
+            .kumpulan-kartu {
+                grid-template-columns: 1fr;
+            }
+
+            /* Di HP kartu Karate memenuhi lebar baris dan tidak membuat kolom tambahan. */
+            .kartu-karate {
+                grid-column: 1;
+            }
+
+            .kumpulan-kartu-tari {
+                grid-template-columns: 1fr;
+            }
+
+            .kartu-tari {
+                grid-column: 1;
+            }
+
+            .gambar-kartu {
+                height: 180px;
+            }
+
+            .informasi {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+
+			<a href="https://smpitalhuda.sch.id/" class="logo-link" aria-label="Kunjungi situs resmi SMPIT Al-Huda Wonogiri">
+                <img
+					src="alhuda.png"
+					alt="Logo SMPIT Al-Huda Wonogiri"
+					class="logo">
+			</a>
+			
+		
+
+			<nav>
+				<a href="#beranda">Beranda</a>
+				<a href="#teknologi">Teknologi</a>
+				<a href="#olahraga">Olahraga</a>
+				<a href="#kdanp">Kepemimpinan & Sosial</a>
+				<a href="#akademik">Akademik</a>
+				<a href="#bahasa">Bahasa</a>
+				<a href="#seni">Seni</a>
+				<a href="#catatan">Catatan</a>
+			</nav>
+
+		</div>
+    </header>
+
+
+    <!-- JUDUL HALAMAN -->
+    <section class="hero container" id="beranda">
+
+        <span class="label">KEGIATAN SISWA</span>
+
+        <h1>Eksplorasi Minat dan Bakatmu</h1>
+
+        <p>
+            Temukan kegiatan ekstrakurikuler yang kamu sukai.
+            Kembangkan kemampuan, kreativitas, kedisiplinan,
+            dan kerja sama bersama teman-temanmu.
+        </p>
+
+    </section>
+
+
+    <!-- KATEGORI TEKNOLOGI -->
+    <section class="kategori container" id="teknologi">
+
+        <div class="judul-kategori">
+            <span class="garis-emas"></span>
+            <h2>💻 Teknologi & Kreativitas</h2>
+        </div>
+
+        <div class="kumpulan-kartu">
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="robotik.png" alt="Kegiatan ekstrakurikuler Robotika">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">TEKNOLOGI</span>
+                    <h3>Robotika</h3>
+                    <p>
+                        Kenali teknologi dan kembangkan kemampuan
+                        merancang serta membuat robot.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="robotika">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                   <img src="desaingrafis.png" alt="Foto Ekstrakurikuler Desain Grafis">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">KREATIVITAS</span>
+                    <h3>Desain Grafis</h3>
+                    <p>
+                        Kembangkan kreativitas melalui desain
+                        visual, ilustrasi, dan komunikasi grafis.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="desain-grafis">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="alhudaapp.png" alt="Kegiatan ekstrakurikuler Al huda APP">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">TEKNOLOGI</span>
+                    <h3>Al Huda App</h3>
+                    <p>
+                        Mengenal pengembangan aplikasi dan
+                        pemanfaatan teknologi untuk kebutuhan sehari-hari.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="al-huda-app">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- KATEGORI OLAHRAGA -->
+    <section class="kategori container" id="olahraga">
+
+        <div class="judul-kategori">
+            <span class="garis-emas"></span>
+            <h2>🏆 Olahraga & Bela Diri</h2>
+        </div>
+
+        <div class="kumpulan-kartu kumpulan-kartu-empat">
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="panah.jpg" alt="Kegiatan ekstrakurikuler Panahan">
+                </div>
+				
+				<p class="kredit-gambar">
+						<a
+							href="https://www.magnific.com/idn/foto-gratis/bidikan-fokus-selektif-target-dengan-orang-buram-menggunakan-busur-dan-anak-panah_8943525.htm"
+							target="_blank"
+							rel="noopener noreferrer"
+						>Gambar oleh wirestock di Magnific</a>
+				</p>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">OLAHRAGA</span>
+                    <h3>Panahan</h3>
+                    <p>
+                        Latih konsentrasi, ketelitian, dan kedisiplinasn
+                        dalam kegiatan panahan.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="panahan">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="futsal.jpg" alt="Kegiatan ekstrakurikuler Futsal">
+                </div>
+				
+					<p class="kredit-gambar">
+							<a href="https://www.magnific.com/idn/vektor-gratis/latar-belakang-lapangan-sepak-bola-gradien_15510124.htm"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Gambar oleh magnific</a>
+					</p>
+					
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">OLAHRAGA</span>
+                    <h3>Futsal</h3>
+                    <p>
+                        Kembangkan kerja sama tim, strategi,
+                        dan keterampilan bermain futsal.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="futsal">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="voli.jpg" alt="Kegiatan ekstrakurikuler Voli">
+                </div>
+				
+					<p class="kredit-gambar">
+							<a href="https://www.magnific.com/idn/gambar-ai-gratis/bola-olahraga-di-lantai-dalam-ruangan_408563561.htm"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Gambar oleh magnific</a>
+					</p>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">OLAHRAGA</span>
+                    <h3>Voli</h3>
+                    <p>
+                        Tingkatkan koordinasi, kekompakan,
+                        dan kemampuan bermain bola voli.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="voli">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="pencaksilat.png" alt="Kegiatan ekstrakurikuler Pencak Silat">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">BELA DIRI</span>
+                    <h3>Pencak Silat</h3>
+                    <p>
+                        Belajar kedisiplinan, pengendalian diri,
+                        dan menghargai orang lain.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="pencak-silat">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="kartu kartu-karate">
+                <div class="gambar-kartu">
+                   <img src="karate.jpg" alt="Kegiatan ekstrakurikuler Karate ">
+                </div>
+				
+					<p class="kredit-gambar">
+							<a href="https://www.magnific.com/idn/vektor-gratis/siluet-karate-yang-digambar-tangan_63334031.htm"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Gambar oleh magnific</a>
+					</p>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">BELA DIRI</span>
+                    <h3>Karate</h3>
+                    <p>
+                        Melatih fokus, disiplin, kebugaran,
+                        dan sikap saling menghormati.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="karate">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+        </div>
+    </section>
+			
+	<section class="kategori container" id="akademik">
+	
+	
+        <div class="judul-kategori">
+            <span class="garis-emas"></span>
+            <h2>📚 Akademik</h2>
+        </div>
+
+        <div class="kumpulan-kartu">
+	
+			<article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="ipa.png" alt="Kegiatan ekstrakurikuler OSN IPA">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">AKADEMIK</span>
+                    <h3>OSN IPA</h3>
+                    <p>
+                        OSN IPA merupakan kegiatan untuk memperdalam pemahaman tentang ilmu pengetahuan alam.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="ipa">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+			<article class="kartu">
+                <div class="gambar-kartu">
+                   <img src="ips.png" alt="Kegiatan ekstrakurikuler OSN IPS">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">AKADEMIK</span>
+                    <h3>OSN IPS</h3>
+                    <p>
+                        OSN IPS menjadi kesempatan bagi siswa untuk memahami kehidupan masyarakat dan berbagai peristiwa yang membentuk dunia di sekitar kita.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="ips">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+			<article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="mtk.png" alt="Kegiatan ekstrakurikuler OSN Matematika">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">AKADEMIK</span>
+                    <h3>OSN Matematika</h3>
+                    <p>
+                        OSN Matematika ditujukan bagi siswa yang ingin memperdalam kemampuan bernalar dan menyelesaikan persoalan matematika.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="mtk">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>	
+			
+        </div>
+    </section>
+	
+	<section class="kategori container" id="kdanp">
+	
+	
+        <div class="judul-kategori">
+            <span class="garis-emas"></span>
+            <h2>🤝 Kepemimpinan dan Sosial</h2>
+        </div>
+
+        <div class="kumpulan-kartu">
+	
+			<article class="kartu">
+                <div class="gambar-kartu">
+                     <img src="pramuka.png" alt="Kegiatan ekstrakurikuler Pramuka">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">Kepemimpinan dan Sosial</span>
+                    <h3>Pramuka</h3>
+                    <p>
+                        Pramuka menjadi ruang untuk belajar mandiri, bekerja sama, dan bertanggung jawab.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="pramuka">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+			<article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="pmr.png" alt="Kegiatan ekstrakurikuler PMR">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">Kepemimpinan dan Sosial</span>
+                    <h3>PMR</h3>
+                    <p>
+                        Palang Merah Remaja (PMR) memperkenalkan kepedulian terhadap kesehatan dan sesama.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="pmr">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+		</div>
+	</section>
+	
+	<section class="kategori container" id="bahasa">
+	
+	
+        <div class="judul-kategori">
+            <span class="garis-emas"></span>
+            <h2>🌍 Bahasa</h2>
+        </div>
+
+        <div class="kumpulan-kartu">
+	
+			<article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="englishclub.png" alt="Foto ekstrakurikuler English Club">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">Bahasa</span>
+                    <h3>English Club</h3>
+                    <p>
+                        English Club menjadi tempat untuk berlatih menggunakan bahasa Inggris dengan lebih percaya diri.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="englishclub">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+			<article class="kartu">
+                <div class="gambar-kartu">
+                    <img src="arabicclub.png" alt="Foto ekstrakurikuler Arabic Club">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">Bahasa</span>
+                    <h3>Arabic Club</h3>
+                    <p>
+                       Arabic Club memberi kesempatan untuk mengenal dan berlatih bahasa Arab secara bertahap.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="arabicclub">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+
+		</div>
+	</section>
+	
+	<section class="kategori container" id="seni">
+	
+	
+        <div class="judul-kategori">
+            <span class="garis-emas"></span>
+            <h2>🎨 Seni</h2>
+        </div>
+
+        <div class="kumpulan-kartu-tari">
+	
+			<article class="kartu kartu-tari">
+                <div class="gambar-kartu">
+                    <img src="tari.png" alt="Kegiatan ekstrakurikuler Tari">
+                </div>
+
+                <div class="isi-kartu">
+                    <span class="kategori-kecil">Seni</span>
+                    <h3>Tari</h3>
+                    <p>
+                       Ekstrakurikuler Tari menjadi tempat untuk mengekspresikan diri melalui gerak dan irama.
+                    </p>
+                    <button class="tombol tombol-detail" type="button" data-kegiatan="tari">
+                        Pelajari lebih lanjut →
+                    </button>
+                </div>
+            </article>
+			
+		</div>
+	</section>
+
+    <!-- INFORMASI -->
+    <section class="informasi container" id="catatan">
+
+        <h2>Catatan penting!</h2>
+
+        <p>
+		Setiap kegiatan memiliki jadwal dan ketentuan masing-masing.
+        Ekstra PMR (Ikhwan/Akhwat) diperuntukkan kelas 8 dan 9.
+		Ekstra OSN akan dilaksanakan 3 pekan sekali:
+		Pekan ke - 1 OSN Matematika.
+		Pekan ke - 2 OSN IPA.
+		Pekan ke - 3 OSN IPS.
+        </p>
+
+    </section>
+
+
+
+
+    <!-- JENDELA DETAIL: ISINYA BERUBAH SESUAI KARTU YANG DIPILIH -->
+    <dialog class="dialog-detail" id="dialog-detail" aria-labelledby="judul-detail">
+        <div class="dialog-header">
+            <span class="dialog-label" id="kategori-detail">EKSTRAKURIKULER</span>
+            <h2 id="judul-detail">Nama kegiatan</h2>
+        </div>
+
+        <div class="dialog-body">
+            <p id="deskripsi-detail"></p>
+
+            <h3>Di kegiatan ini, kamu bisa…</h3>
+            <ul id="aktivitas-detail"></ul>
+
+            <h3>Apa manfaatnya?</h3>
+            <p id="manfaat-detail"></p>
+
+            <p class="catatan-dialog" id="catatan-detail"></p>
+
+            <div class="dialog-actions">
+                <button class="tombol-tutup" type="button" id="tutup-detail" autofocus>
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+
+        <!-- FOOTER -->
+    <footer>
+        <p><strong>SMPIT Al Huda Wonogiri</strong></p>
+        <p>Website informasi ekstrakurikuler sekolah</p>
+    </footer>
+
+
+
+    <script>
+        // Data penjelasan untuk setiap kartu.
+        // Kamu bisa mengubah kalimat di sini tanpa mengubah desain kartu.
+        const detailKegiatan = {
+            "robotika": {
+                judul: "Robotika",
+                kategori: "TEKNOLOGI",
+                deskripsi: "Penasaran bagaimana robot bisa bergerak atau menjalankan perintah? Di kegiatan Robotika, kamu bisa mengenal cara kerja robot dan belajar menyusun solusi untuk sebuah tantangan. Tidak harus langsung ahli—yang penting mau mencoba, mengamati, dan memperbaiki hasil karya.",
+                aktivitas: [
+                    "Mengenal komponen dan cara kerja robot.",
+                    "Mencoba merancang atau merakit proyek sederhana.",
+                    "Bekerja sama mencari solusi saat proyek belum berjalan sesuai rencana."
+                ],
+                manfaat: "Kegiatan ini dapat melatih logika, kreativitas, ketelitian, serta kemampuan memecahkan masalah.",
+                catatan: "Contoh kegiatan di atas merupakan gambaran umum. Aktivitas sebenarnya mengikuti program pembina Robotika di sekolah."
+            },
+            "desain-grafis": {
+                judul: "Desain Grafis",
+                kategori: "KREATIVITAS",
+                deskripsi: "Punya ide yang ingin disampaikan lewat gambar, warna, dan tulisan? Desain Grafis mengajakmu mengubah ide itu menjadi karya visual yang enak dilihat sekaligus mudah dipahami. Kamu akan belajar bahwa desain bukan sekadar membuat sesuatu terlihat keren, tetapi juga menyampaikan pesan dengan jelas.",
+                aktivitas: [
+                    "Mengatur warna, huruf, gambar, dan tata letak.",
+                    "Membuat karya seperti poster, pamflet, atau konten informasi.",
+                    "Merevisi desain agar pesannya semakin jelas."
+                ],
+                manfaat: "Kegiatan ini dapat mengasah kreativitas, rasa estetika, ketelitian, dan kemampuan menyampaikan ide.",
+                catatan: "Contoh karya dapat disesuaikan dengan perangkat dan aplikasi yang digunakan di sekolah."
+            },
+            "al-huda-app": {
+                judul: "Al Huda App",
+                kategori: "TEKNOLOGI",
+                deskripsi: "Di kegiatan Al Huda App, siswa berkenalan dengan cara teknologi dapat membantu kebutuhan sehari-hari di lingkungan sekolah. Kegiatannya bisa menjadi kesempatan untuk mengembangkan ide aplikasi, memahami alur penggunaan, dan belajar bagaimana sebuah solusi digital direncanakan.",
+                aktivitas: [
+                    "Mengamati kebutuhan yang bisa dibantu dengan aplikasi.",
+                    "Menyusun ide, fitur, dan alur penggunaan aplikasi.",
+                    "Mengenal proses membuat atau menguji solusi digital."
+                ],
+                manfaat: "Kamu dapat melatih kreativitas, kerja tim, pemahaman teknologi, dan kemampuan merancang solusi.",
+                catatan: "Penjelasan ini bersifat umum. Pastikan isi kegiatan Al Huda App sesuai dengan program resmi pembina."
+            },
+            "panahan": {
+                judul: "Panahan",
+                kategori: "OLAHRAGA",
+                deskripsi: "Panahan membutuhkan fokus dan ketenangan. Dalam latihan, peserta belajar mengikuti arahan, memperhatikan teknik, serta menjaga konsentrasi dari awal sampai akhir. Kemampuan tidak muncul dalam sekali coba, jadi latihan dilakukan secara bertahap dengan pendampingan pembina.",
+                aktivitas: [
+                    "Mengenal aturan serta perlengkapan dengan arahan pembina.",
+                    "Melatih posisi, fokus, dan konsistensi teknik.",
+                    "Mengevaluasi latihan dan belajar menjaga kedisiplinan."
+                ],
+                manfaat: "Panahan dapat membantu melatih konsentrasi, kesabaran, koordinasi, dan tanggung jawab.",
+                catatan: "Latihan harus dilakukan bersama pembina dan mengikuti seluruh aturan keselamatan yang berlaku."
+            },
+            "futsal": {
+                judul: "Futsal",
+                kategori: "OLAHRAGA",
+                deskripsi: "Futsal bukan cuma soal mencetak gol. Pemain juga perlu membaca situasi, memberi umpan, menjaga posisi, dan bekerja sama dengan tim. Melalui latihan dan permainan, kamu bisa mengembangkan kemampuan secara bertahap sambil belajar menghargai teman maupun lawan.",
+                aktivitas: [
+                    "Melatih kontrol bola, umpan, dan teknik dasar permainan.",
+                    "Mempelajari kerja sama, posisi, dan strategi tim.",
+                    "Berlatih sportif, mengikuti aturan, dan menghargai rekan."
+                ],
+                manfaat: "Kegiatan ini membantu membangun kebugaran, koordinasi, komunikasi, dan semangat kerja sama.",
+                catatan: "Materi latihan dan jadwal mengikuti pengaturan pembina ekstrakurikuler sekolah."
+            },
+            "voli": {
+                judul: "Voli",
+                kategori: "OLAHRAGA",
+                deskripsi: "Voli dimainkan dengan kerja sama setiap anggota tim. Satu serangan yang bagus biasanya diawali komunikasi dan operan yang tepat. Di kegiatan ini, kamu dapat belajar teknik dasar sekaligus memahami pentingnya saling mendukung di lapangan.",
+                aktivitas: [
+                    "Mengenal teknik dasar seperti passing, servis, dan posisi bermain.",
+                    "Melatih koordinasi serta komunikasi antarpemain.",
+                    "Membangun sportivitas saat latihan maupun pertandingan."
+                ],
+                manfaat: "Voli dapat meningkatkan kebugaran, koordinasi, kekompakan, dan rasa percaya diri.",
+                catatan: "Jenis latihan dan pembagian kelompok menyesuaikan program pembina di sekolah."
+            },
+            "pencak-silat": {
+                judul: "Pencak Silat",
+                kategori: "BELA DIRI",
+                deskripsi: "Pencak silat memadukan gerak, kebugaran, konsentrasi, dan pengendalian diri. Latihan dilakukan secara bertahap dengan mengikuti arahan pembina. Selain mengembangkan kemampuan fisik, peserta juga belajar bahwa disiplin dan menghormati orang lain merupakan bagian penting dari latihan.",
+                aktivitas: [
+                    "Mengenal sikap dasar dan rangkaian gerakan sesuai arahan pembina.",
+                    "Melatih keseimbangan, koordinasi, dan konsentrasi.",
+                    "Membiasakan sikap disiplin, sportif, dan saling menghormati."
+                ],
+                manfaat: "Kegiatan ini dapat membantu membangun kebugaran, fokus, kedisiplinan, dan pengendalian diri.",
+                catatan: "Latihan harus mengikuti instruksi pembina, menggunakan perlengkapan yang sesuai, dan tidak dilakukan sembarangan di luar latihan."
+            },
+            "karate": {
+                judul: "Karate",
+                kategori: "BELA DIRI",
+                deskripsi: "Karate mengajarkan gerakan yang teratur, fokus, dan pengendalian diri. Peserta mempelajari teknik secara bertahap serta berlatih mengikuti instruksi dengan benar. Tujuannya bukan untuk mencari masalah, melainkan membangun disiplin, rasa hormat, dan kebugaran.",
+                aktivitas: [
+                    "Mengenal sikap, gerakan dasar, dan tata tertib latihan.",
+                    "Melatih keseimbangan, koordinasi, dan konsistensi gerakan.",
+                    "Membiasakan disiplin serta menghormati pembina dan teman."
+                ],
+                manfaat: "Karate dapat membantu melatih konsentrasi, kebugaran, koordinasi, dan ketekunan.",
+                catatan: "Ikuti latihan hanya dengan arahan pembina dan aturan keselamatan kegiatan."
+			},
+                "ipa": {
+                judul: "OSN IPA",
+                kategori: "AKADEMIK",
+                deskripsi: "OSN IPA merupakan kegiatan untuk memperdalam pemahaman tentang ilmu pengetahuan alam. Siswa diajak memahami berbagai fenomena alam, mulai dari makhluk hidup, lingkungan, hingga konsep fisika dan kimia sederhana. Melalui latihan dan diskusi, siswa dapat belajar menghubungkan teori dengan kejadian yang ditemukan dalam kehidupan sehari-hari.",
+                aktivitas: [
+                    "Mempelajari konsep Biologi, Fisika, dan Kimia sesuai materi yang dipelajari.",
+                    "Mengerjakan latihan soal dan membahas cara menemukan jawabannya.",
+                    "Melatih kemampuan mengamati, menganalisis, dan memecahkan masalah ilmiah."
+                ],
+                manfaat: "Kegiatan ini dapat meningkatkan rasa ingin tahu, kemampuan berpikir kritis, ketelitian, dan pemahaman terhadap fenomena alam.",
+                catatan: "Materi latihan dan persiapan kompetisi disesuaikan dengan kurikulum, tingkat kemampuan siswa, serta program pembina OSN IPA di sekolah."
+            },
+
+            "ips": {
+                judul: "OSN IPS",
+                kategori: "AKADEMIK",
+                deskripsi: "OSN IPS menjadi kesempatan bagi siswa untuk memahami kehidupan masyarakat dan berbagai peristiwa yang membentuk dunia di sekitar kita. Siswa dapat mempelajari sejarah, geografi, kegiatan ekonomi, serta hubungan sosial dan budaya. Kegiatan ini tidak hanya berfokus pada menghafal materi, tetapi juga memahami hubungan sebab-akibat dan menganalisis berbagai permasalahan sosial.",
+                aktivitas: [
+                    "Mempelajari konsep sejarah, geografi, ekonomi, dan kehidupan sosial.",
+                    "Menganalisis peta, data, peristiwa sejarah, serta permasalahan dalam masyarakat.",
+                    "Mengerjakan latihan soal untuk melatih penalaran dan kemampuan memahami informasi."
+                ],
+                manfaat: "Kegiatan ini dapat mengembangkan wawasan sosial, kemampuan berpikir kritis, keterampilan menganalisis data, dan pemahaman terhadap lingkungan masyarakat.",
+                catatan: "Materi latihan dan persiapan kompetisi mengikuti cakupan materi serta program pembinaan OSN IPS yang diterapkan di sekolah."
+            },
+
+            "mtk": {
+                judul: "OSN Matematika",
+                kategori: "AKADEMIK",
+                deskripsi: "OSN Matematika ditujukan bagi siswa yang ingin memperdalam kemampuan bernalar dan menyelesaikan persoalan matematika. Dalam kegiatan ini, siswa diajak menghadapi berbagai soal yang membutuhkan ketelitian, kreativitas, serta strategi penyelesaian yang tepat. Setiap soal menjadi kesempatan untuk mencoba pendekatan baru dan memahami alasan di balik suatu jawaban.",
+                aktivitas: [
+                    "Mempelajari konsep bilangan, aljabar, geometri, serta pengolahan data sesuai materi kompetisi.",
+                    "Mengerjakan soal tantangan yang melatih logika dan penalaran matematis.",
+                    "Membahas berbagai strategi penyelesaian dan mengevaluasi langkah-langkah pengerjaan."
+                ],
+                manfaat: "Kegiatan ini dapat mengasah kemampuan berpikir logis, ketelitian, kreativitas, ketekunan, dan keterampilan memecahkan masalah.",
+                catatan: "Tingkat kesulitan soal dan materi latihan disesuaikan dengan jenjang siswa serta program pembinaan OSN Matematika di sekolah."
+            },
+            "pramuka": {
+                judul: "Pramuka",
+                kategori: "Kepemimpinan & Sosial",
+                deskripsi: "Pramuka menjadi ruang untuk belajar mandiri, bekerja sama, dan bertanggung jawab. Melalui kegiatan yang dilakukan bersama regu, peserta dapat berlatih menyelesaikan tantangan, memimpin, sekaligus menghargai pendapat teman.",
+                aktivitas: [
+                    "Berlatih keterampilan kepramukaan sesuai arahan pembina.",
+                    "Mengikuti permainan kelompok yang melatih kerja sama dan pemecahan masalah.",
+                    "Belajar disiplin, tanggung jawab, dan kepemimpinan dalam regu."
+                ],
+                manfaat: "Kegiatan Pramuka dapat membantu mengembangkan kemandirian, kepemimpinan, kepedulian, dan semangat gotong royong.",
+                catatan: "Jenis latihan, agenda, dan kegiatan lapangan mengikuti program resmi serta arahan pembina Pramuka di sekolah."
+            },
+            "pmr": {
+                judul: "PMR",
+                kategori: "Kepemimpinan & Sosial",
+                deskripsi: "Palang Merah Remaja (PMR) memperkenalkan kepedulian terhadap kesehatan dan sesama. Peserta dapat belajar bersikap sigap, bekerja dalam tim, serta memahami pentingnya pertolongan yang tepat dengan tetap mengikuti arahan orang yang berkompeten.",
+                aktivitas: [
+                    "Mengenal dasar-dasar kesehatan dan pertolongan pertama sesuai materi pembina.",
+                    "Berlatih komunikasi, kerja sama, dan kepedulian terhadap lingkungan sekitar.",
+                    "Mengikuti kegiatan sosial atau edukasi kesehatan sesuai program sekolah."
+                ],
+                manfaat: "PMR dapat menumbuhkan kepedulian, rasa tanggung jawab, kerja sama, dan kesadaran untuk membantu sesama dengan tepat.",
+                catatan: "Informasi ini merupakan gambaran umum. Praktik pertolongan pertama harus mengikuti pelatihan, arahan pembina, dan prosedur yang berlaku."
+            },
+            "englishclub": {
+                judul: "English Club",
+                kategori: "BAHASA",
+                deskripsi: "English Club menjadi tempat untuk berlatih menggunakan bahasa Inggris dengan lebih percaya diri. Peserta dapat mengembangkan kemampuan berbicara, mendengarkan, membaca, dan menambah kosakata melalui kegiatan yang menyenangkan.",
+                aktivitas: [
+                    "Berlatih percakapan sederhana dan pengucapan dalam bahasa Inggris.",
+                    "Menambah kosakata melalui permainan, bacaan, atau aktivitas kelompok.",
+                    "Mencoba presentasi singkat, dialog, atau permainan peran."
+                ],
+                manfaat: "Kegiatan ini dapat membantu meningkatkan kepercayaan diri, kemampuan berkomunikasi, dan kebiasaan belajar bahasa Inggris.",
+                catatan: "Materi dan bentuk kegiatan disesuaikan dengan tingkat kemampuan peserta serta program pembina English Club."
+            },
+            "arabicclub": {
+                judul: "Arabic Club",
+                kategori: "BAHASA",
+                deskripsi: "Arabic Club memberi kesempatan untuk mengenal dan berlatih bahasa Arab secara bertahap. Peserta dapat mempelajari kosakata, pengucapan, serta ungkapan sederhana sambil mengenal penggunaan bahasa Arab dalam konteks yang sesuai dengan materi sekolah.",
+                aktivitas: [
+                    "Mempelajari kosakata dan ungkapan bahasa Arab sehari-hari.",
+                    "Berlatih membaca, menulis, atau melafalkan kata sesuai materi.",
+                    "Mencoba dialog sederhana dan latihan bahasa secara berkelompok."
+                ],
+                manfaat: "Kegiatan ini dapat memperluas kosakata, melatih ketelitian membaca dan melafalkan kata, serta meningkatkan kepercayaan diri dalam menggunakan bahasa Arab.",
+                catatan: "Materi pembelajaran mengikuti tingkat kemampuan peserta dan program pembina Arabic Club di sekolah."
+            },
+            "tari": {
+                judul: "Tari",
+                kategori: "SENI",
+                deskripsi: "Ekstrakurikuler Tari menjadi tempat untuk mengekspresikan diri melalui gerak dan irama. Peserta dapat mempelajari rangkaian gerakan, melatih kekompakan, serta mengenal nilai seni dan budaya melalui tarian yang dipelajari.",
+                aktivitas: [
+                    "Mempelajari gerak dasar, irama, dan ekspresi dalam tarian.",
+                    "Berlatih mengingat rangkaian gerakan dan menjaga kekompakan kelompok.",
+                    "Mempersiapkan penampilan atau karya tari sesuai kegiatan sekolah."
+                ],
+                manfaat: "Kegiatan Tari dapat membantu mengembangkan kreativitas, koordinasi gerak, rasa percaya diri, kedisiplinan, dan apresiasi terhadap seni budaya.",
+                catatan: "Jenis tarian, jadwal latihan, dan kesempatan tampil mengikuti program pembina serta kegiatan resmi sekolah."
+            }
+        };
+
+        const dialog = document.getElementById("dialog-detail");
+        const judulDetail = document.getElementById("judul-detail");
+        const kategoriDetail = document.getElementById("kategori-detail");
+        const deskripsiDetail = document.getElementById("deskripsi-detail");
+        const aktivitasDetail = document.getElementById("aktivitas-detail");
+        const manfaatDetail = document.getElementById("manfaat-detail");
+        const catatanDetail = document.getElementById("catatan-detail");
+        const tombolTutup = document.getElementById("tutup-detail");
+		
+        // Setiap tombol membuka penjelasan yang sesuai dengan kartunya.
+        document.querySelectorAll(".tombol-detail").forEach(function(tombol) {
+            tombol.addEventListener("click", function() {
+                const idKegiatan = tombol.dataset.kegiatan;
+                const data = detailKegiatan[idKegiatan];
+
+                // Berhenti jika ID tombol belum mempunyai data penjelasan.
+                if (!data) {
+                    console.error("Detail kegiatan belum tersedia:", idKegiatan);
+                    return;
+                }
+
+                judulDetail.textContent = data.judul;
+                kategoriDetail.textContent = data.kategori;
+                deskripsiDetail.textContent = data.deskripsi;
+                manfaatDetail.textContent = data.manfaat;
+                catatanDetail.textContent = data.catatan;
+
+                // Kosongkan daftar lama sebelum memasukkan aktivitas baru.
+                aktivitasDetail.replaceChildren();
+
+                data.aktivitas.forEach(function(teksAktivitas) {
+                    const item = document.createElement("li");
+                    item.textContent = teksAktivitas;
+                    aktivitasDetail.appendChild(item);
+                });
+
+                dialog.showModal();
+                tombolTutup.focus();
+            });
+        });
+
+        // Tombol Tutup menutup jendela detail.
+        tombolTutup.addEventListener("click", function() {
+            dialog.close();
+        });
+
+        // Elemen <dialog> juga bisa ditutup dengan tombol Esc.
+    </script>
+
+</body>
+</html>
