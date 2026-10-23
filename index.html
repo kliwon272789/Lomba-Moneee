@@ -244,8 +244,6 @@
             box-shadow: 0 10px 24px rgba(23, 77, 58, 0.13);
         }
 
-        /* Tempat gambar sementara */
-
         .gambar-kartu {
             height: 155px;
             display: flex;
@@ -295,6 +293,17 @@
             line-height: 1.7;
             margin: 0 0 18px;
         }
+		
+		.jadwal {
+            display: inline-block;
+            color: #287A57;
+            background-color: #E7F1EA;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+		}
 
         .tombol {
             display: inline-block;
@@ -424,11 +433,13 @@
         ===================================== */
 
         .informasi {
-            margin: 25px auto 55px;
-            padding: 28px;
+			display: inline-block;
+            width: calc(100% - 60px);
+			margin: 24px 30px;
+            padding: 16px 28px;
             background-color: #E7F1EA;
             border-radius: 16px;
-            border-left: 5px solid #D6B66C;
+            border: 5px solid #D6B66C;
         }
 
         .informasi h2 {
@@ -538,7 +549,6 @@
 				<a href="#akademik">Akademik</a>
 				<a href="#bahasa">Bahasa</a>
 				<a href="#seni">Seni</a>
-				<a href="#catatan">Catatan</a>
 			</nav>
 
 		</div>
@@ -579,6 +589,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">TEKNOLOGI</span>
                     <h3>Robotika</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         Kenali teknologi dan kembangkan kemampuan
                         merancang serta membuat robot.
@@ -597,6 +608,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">KREATIVITAS</span>
                     <h3>Desain Grafis</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         Kembangkan kreativitas melalui desain
                         visual, ilustrasi, dan komunikasi grafis.
@@ -616,6 +628,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">TEKNOLOGI</span>
                     <h3>Al Huda App</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         Mengenal pengembangan aplikasi dan
                         pemanfaatan teknologi untuk kebutuhan sehari-hari.
@@ -656,6 +669,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">OLAHRAGA</span>
                     <h3>Panahan</h3>
+					<span class="jadwal">Jumat(Ikhwan), Sabtu(Akhwat)</span>
                     <p>
                         Latih konsentrasi, ketelitian, dan kedisiplinasn
                         dalam kegiatan panahan.
@@ -682,6 +696,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">OLAHRAGA</span>
                     <h3>Futsal</h3>
+					<span class="jadwal">Jumat</span>
                     <p>
                         Kembangkan kerja sama tim, strategi,
                         dan keterampilan bermain futsal.
@@ -708,6 +723,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">OLAHRAGA</span>
                     <h3>Voli</h3>
+					<span class="jadwal">Ahad</span>
                     <p>
                         Tingkatkan koordinasi, kekompakan,
                         dan kemampuan bermain bola voli.
@@ -727,6 +743,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">BELA DIRI</span>
                     <h3>Pencak Silat</h3>
+					<span class="jadwal">Ahad(Ikhwan), Jumat(Akhwat)</span>
                     <p>
                         Belajar kedisiplinan, pengendalian diri,
                         dan menghargai orang lain.
@@ -753,6 +770,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">BELA DIRI</span>
                     <h3>Karate</h3>
+					<span class="jadwal">Ahads</span>
                     <p>
                         Melatih fokus, disiplin, kebugaran,
                         dan sikap saling menghormati.
@@ -784,6 +802,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">AKADEMIK</span>
                     <h3>OSN IPA</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         OSN IPA merupakan kegiatan untuk memperdalam pemahaman tentang ilmu pengetahuan alam.
                     </p>
@@ -801,6 +820,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">AKADEMIK</span>
                     <h3>OSN IPS</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         OSN IPS menjadi kesempatan bagi siswa untuk memahami kehidupan masyarakat dan berbagai peristiwa yang membentuk dunia di sekitar kita.
                     </p>
@@ -818,6 +838,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">AKADEMIK</span>
                     <h3>OSN Matematika</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         OSN Matematika ditujukan bagi siswa yang ingin memperdalam kemampuan bernalar dan menyelesaikan persoalan matematika.
                     </p>
@@ -825,10 +846,24 @@
                         Pelajari lebih lanjut →
                     </button>
                 </div>
-            </article>	
+            </article>
+		 
 			
         </div>
     </section>
+	
+			<section class="informasi container">
+
+				<h2>Catatan penting!</h2>
+
+				<p>
+				Ekstra OSN akan dilaksanakan 3 pekan sekali:
+				Pekan ke - 1 OSN Matematika.
+				Pekan ke - 2 OSN IPA.
+				Pekan ke - 3 OSN IPS.
+				</p>
+
+			</section>			
 	
 	<section class="kategori container" id="kdanp">
 	
@@ -848,6 +883,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">Kepemimpinan dan Sosial</span>
                     <h3>Pramuka</h3>
+					<span class="jadwal">Jumat</span>
                     <p>
                         Pramuka menjadi ruang untuk belajar mandiri, bekerja sama, dan bertanggung jawab.
                     </p>
@@ -865,6 +901,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">Kepemimpinan dan Sosial</span>
                     <h3>PMR</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         Palang Merah Remaja (PMR) memperkenalkan kepedulian terhadap kesehatan dan sesama.
                     </p>
@@ -874,8 +911,20 @@
                 </div>
             </article>
 			
+			
+			
 		</div>
 	</section>
+			
+			 <section class="informasi container">
+
+				<h2>Catatan penting!</h2>
+
+				<p>
+				Ekstra PMR (Ikhwan/Akhwat) diperuntukkan kelas 8 dan 9.
+				</p>
+
+			</section>			
 	
 	<section class="kategori container" id="bahasa">
 	
@@ -895,6 +944,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">Bahasa</span>
                     <h3>English Club</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                         English Club menjadi tempat untuk berlatih menggunakan bahasa Inggris dengan lebih percaya diri.
                     </p>
@@ -912,6 +962,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">Bahasa</span>
                     <h3>Arabic Club</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                        Arabic Club memberi kesempatan untuk mengenal dan berlatih bahasa Arab secara bertahap.
                     </p>
@@ -942,6 +993,7 @@
                 <div class="isi-kartu">
                     <span class="kategori-kecil">Seni</span>
                     <h3>Tari</h3>
+					<span class="jadwal">Sabtu</span>
                     <p>
                        Ekstrakurikuler Tari menjadi tempat untuk mengekspresikan diri melalui gerak dan irama.
                     </p>
@@ -955,20 +1007,7 @@
 	</section>
 
     <!-- INFORMASI -->
-    <section class="informasi container" id="catatan">
-
-        <h2>Catatan penting!</h2>
-
-        <p>
-		Setiap kegiatan memiliki jadwal dan ketentuan masing-masing.
-        Ekstra PMR (Ikhwan/Akhwat) diperuntukkan kelas 8 dan 9.
-		Ekstra OSN akan dilaksanakan 3 pekan sekali:
-		Pekan ke - 1 OSN Matematika.
-		Pekan ke - 2 OSN IPA.
-		Pekan ke - 3 OSN IPS.
-        </p>
-
-    </section>
+   
 
 
 
